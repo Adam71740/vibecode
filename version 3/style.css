@@ -1,0 +1,91 @@
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    font-family:"Segoe UI", sans-serif;
+    overflow-x:hidden;
+    transition: background 0.5s, color 0.5s;
+}
+
+/* HEADER */
+header {
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:100;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(5px);
+    transition: background 0.5s, color 0.5s;
+}
+header .logo { font-size:1.5rem; font-weight:bold; }
+header nav ul { list-style:none; display:flex; gap:20px; }
+header nav a { color:white; text-decoration:none; transition:0.3s; }
+header nav a:hover { color:#ff9800; }
+#darkModeToggle { padding:8px 15px; border:none; border-radius:5px; cursor:pointer; background:#ff9800; color:black; font-weight:bold; transition:0.3s;}
+#darkModeToggle:hover { transform: scale(1.1); }
+
+/* DARK / LIGHT BODY */
+body.dark { background:black; color:white; }
+body.light { background:#f4f4f4; color:black; }
+body.light header { background: rgba(255,255,255,0.6);}
+body.light header nav a { color:black; }
+
+/* CANVAS */
+canvas#starfield { position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+
+/* SECTIONS */
+section {
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    padding:50px;
+    z-index:1;
+    transition: background 0.5s, color 0.5s;
+}
+section.in-view { animation: fadeInUp 1s forwards; opacity:1; }
+@keyframes fadeInUp { 0%{transform:translateY(50px);opacity:0;}100%{transform:translateY(0);opacity:1;} }
+
+/* SECTION BACKGROUNDS */
+body.dark .world-1{ background: linear-gradient(0deg,#000428,#004e92); color:white; }
+body.dark .world-2{ background: linear-gradient(0deg,#1e3c72,#2a5298); color:white; }
+body.dark .world-3{ background: linear-gradient(0deg,#42275a,#734b6d); color:white; }
+body.dark .world-4{ background: linear-gradient(0deg,#134e5e,#71b280); color:white; }
+body.dark .world-5{ background: linear-gradient(0deg,#0f2027,#203a43,#2c5364); color:white; }
+body.dark .world-6{ background: linear-gradient(0deg,#2c3e50,#4ca1af); color:white; }
+
+body.light .world-1{ background: linear-gradient(0deg,#e0e0e0,#b0c4de); color:black; }
+body.light .world-2{ background: linear-gradient(0deg,#d3d3d3,#a9cce3); color:black; }
+body.light .world-3{ background: linear-gradient(0deg,#c5c1c5,#d8b4dd); color:black; }
+body.light .world-4{ background: linear-gradient(0deg,#b0c4c0,#98fb98); color:black; }
+body.light .world-5{ background: linear-gradient(0deg,#dcdcdc,#a0a0a0,#808080); color:black; }
+body.light .world-6{ background: linear-gradient(0deg,#a0a0a0,#c0d0d0); color:black; }
+
+/* BUTTON */
+button { margin-top:20px; padding:15px 30px; font-size:1.1rem; border-radius:10px; border:none; cursor:pointer; background:linear-gradient(45deg,#ff9800,#ff3d00); color:white; transition:0.3s; }
+button:hover { transform:scale(1.15); box-shadow:0 0 20px #ff9800; }
+
+/* TYPING EFFECT */
+.typed::after { content:'|'; animation: blink 0.7s infinite; }
+@keyframes blink { 0%,50%,100%{opacity:1;}25%,75%{opacity:0;} }
+
+/* TABLE */
+table { width:80%; margin-top:30px; border-collapse:collapse; border-radius:10px; overflow:hidden; animation: fadeInUp 1s forwards; opacity:0; transition: background 0.5s, color 0.5s; }
+body.dark table { background: rgba(255,255,255,0.05); color:white; box-shadow:0 0 20px rgba(255,255,255,0.1); }
+body.light table { background: rgba(0,0,0,0.05); color:black; box-shadow:0 0 20px rgba(0,0,0,0.1); }
+table th, table td { padding:15px 20px; text-align:left; }
+table th { background: rgba(255,152,0,0.8); color:black; }
+table tr:nth-child(even){ background: rgba(255,255,255,0.05); }
+body.light table tr:nth-child(even){ background: rgba(0,0,0,0.05); }
+table tr:hover{ background: rgba(255,152,0,0.3); transform: scale(1.02); transition:0.3s; }
+
+/* FOOTER */
+footer{ padding:20px; text-align:center; transition: background 0.5s, color 0.5s; }
+body.dark footer{ background:black; color:white; }
+body.light footer{ background:white; color:black; }
